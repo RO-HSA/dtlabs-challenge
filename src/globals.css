@@ -1,5 +1,9 @@
 :root {
-  --background: #F1F1F1;
+  --background: #f1f1f1;
+  --sidebar-bg: white;
+  --border: #e9e9e9;
+  --sb-text: #707070;
+  --sb-text-selected: #ff8b3e;
 }
 
 * {
@@ -11,4 +15,17 @@
 
 body {
   background-color: var(--background);
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 251px auto;
 }
