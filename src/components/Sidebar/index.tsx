@@ -30,7 +30,7 @@ const Sidebar = () => {
           </Link>
           <Link to="/" className={menuItem}>
             <BiSolidData size={32} />
-            Gráficos
+            Usuário
           </Link>
         </div>
         <Separator width='94px' height='0.5px' bgColor="#BCBCBC" className={separator} />
