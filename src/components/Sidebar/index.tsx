@@ -20,7 +20,7 @@ const Sidebar = () => {
       </div>
       <nav className={menu}>
         <div className={menuItems}>
-          <Link to="/" className={[menuItem, active].join(" ")}>
+          <Link to="/dashboard" className={[menuItem, active].join(" ")}>
             <PiHouseFill size={32} />
             Dashboard
           </Link>
