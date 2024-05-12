@@ -1,0 +1,29 @@
+.gridContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 33px 45px 45px 45px;
+  background-color: var(--sidebar-bg);
+  border-radius: 10px;
+}
+
+.gridLine {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--grid-stroke);
+  align-items: center;
+}
+
+.gridLine p:nth-child(2),
+.gridLine p:nth-child(3) {
+  justify-self: center;
+}
+
+.gridLine p:nth-child(4) {
+  justify-self: end;
+}
+
+.title {
+  font-size: 36px;
+  margin: 16px 0 27px 0;
+}
