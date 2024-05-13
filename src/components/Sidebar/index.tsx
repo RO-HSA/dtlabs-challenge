@@ -7,7 +7,6 @@ import { MdLogout } from "react-icons/md"
 
 import Separator from './Separator'
 import logo from '@/assets/logo.svg'
-
 import styles from './sidebar.module.css'
 
 const Sidebar = () => {
@@ -35,7 +34,7 @@ const Sidebar = () => {
         </div>
         <Separator width='94px' height='0.5px' bgColor="#BCBCBC" className={separator} />
         <div className={menuItems}>
-          <Link to="/" className={[menuItem].join(" ")}>
+          <Link to="/profile" className={[menuItem].join(" ")}>
             <PiUserCircleThin size={32} />
             Perfil
           </Link>

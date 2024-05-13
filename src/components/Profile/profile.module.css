@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  background-color: var(--sidebar-bg);
+  border-radius: 16px;
+  max-width: 1062px;
+}
+
+.firstSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 51px 0 54px 0;
+  border: 1px solid var(--background);
+}
+
+.firstSection img {
+  border-radius: 50%;
+  max-width: 156px;
+}
+
+.secondSection {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 80px;
+  padding: 112px 75px 128px 75px;
+}
+
+.name {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.occupancy {
+  color: #AEAEAE;
+  font-size: 12px;
+}
