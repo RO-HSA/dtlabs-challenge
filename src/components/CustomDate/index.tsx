@@ -11,9 +11,9 @@ const CustomDate: FC<Props> = ({ className, fontSize = '32px' }) => {
   const currentDate = getCurrentDate()
 
   return (
-    <>
+    <div className={styles.dateWrapper}>
       <p style={{fontSize}} className={[styles.date, className].join(" ")}>{ currentDate }</p>
-    </>
+    </div>
   )
 }
 

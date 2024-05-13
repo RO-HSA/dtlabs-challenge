@@ -1,3 +1,8 @@
+.dateWrapper {
+  max-width: 1000px;
+  border-bottom: 2px solid var(--border);
+}
+
 .date {
   font-weight: 500;
   color: var(--date);
