@@ -1,16 +1,15 @@
 import { FC } from 'react'
-
 import LastSales from './LastSales'
 import CustomDate from '../CustomDate'
-
+import PageTitle from '../PageTitle'
 import styles from './dashboard.module.css'
 
 const Dashboard: FC = () => {
-  const { title, dateWrapper } = styles
+  const { dateWrapper } = styles
 
   return (
     <>
-      <h1 className={title}>Dashboard</h1>
+      <PageTitle>Dashboard</PageTitle>
       <div className={dateWrapper}>
         <CustomDate />
       </div>

@@ -1,9 +1,3 @@
-.title {
-  font-size: 30px;
-  font-weight: 500;
-  margin-bottom: 40px;
-}
-
 .dateWrapper {
   max-width: 1000px;
   border-bottom: 2px solid var(--border);

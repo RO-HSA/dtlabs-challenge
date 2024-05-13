@@ -1,13 +1,13 @@
+import { FC } from 'react'
 import { getCurrentDate } from '@/utils/DateTime'
-
 import styles from './customDate.module.css'
 
-type Props = {
+interface Props {
   fontSize?: string,
   className?: string
 }
 
-const CustomDate: React.FC<Props> = ({ className, fontSize = '32px' }: Props) => {
+const CustomDate: FC<Props> = ({ className, fontSize = '32px' }) => {
   const currentDate = getCurrentDate()
 
   return (

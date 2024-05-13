@@ -1,12 +1,21 @@
-import { FC } from 'react'
-
+import { FC, useMemo } from 'react'
 import { useSalesQuery } from '@/hooks/queries/SalesQueries'
-
 import styles from './lastSales.module.css'
 
 const LastSales: FC = () => {
   const { gridContainer, gridLine, title } = styles
   const { data, isLoading } = useSalesQuery()
+
+  const list = useMemo(() => {
+    return (data?.map((item, index) => (
+      <div className={gridLine} key={index}>
+        <p>{item.product.name}</p>
+        <p>{item.date.split(',')[0]}</p>
+        <p>{item.date.split(',')[1].replace(' BRT', '')}</p>
+        <p>{`${item.seller.first_name} ${item.seller.last_name}`}</p>
+      </div>
+    )))
+  }, [data])
 
   if (isLoading) return <h1>Loading...</h1>
 
@@ -16,14 +25,7 @@ const LastSales: FC = () => {
         <>
           <h2 className={title}>Últimas vendas deste mês</h2>
           <div className={gridContainer}>
-            {data?.map((item, index) => (
-              <div className={gridLine} key={index}>
-                <p>{item.product.name}</p>
-                <p>{item.date.split(',')[0]}</p>
-                <p>{item.date.split(',')[1].replace(' BRT', '')}</p>
-                <p>{`${item.seller.first_name} ${item.seller.last_name}`}</p>
-              </div>
-            ))}
+            {list}
           </div>
         </>
       )}
