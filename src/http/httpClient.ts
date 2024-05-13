@@ -3,6 +3,7 @@ import axios from "axios"
 import { Sales } from "@/types/sales"
 import { dateTimeIntl } from "@/utils/DateTime"
 import { TOKEN_KEY } from "@/utils/keys"
+import { UserInfo } from "@/types/user"
 
 const apiClient = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
@@ -56,11 +57,19 @@ const getSales = async ({ queryKey }: any) => {
   }).reverse().slice(0, 4)
 
   return newData
+}
 
+const getProfile = async ({ queryKey }: any) => {
+  const queryUrl = queryKey[0]
+
+  const { data } = await apiClient.get<UserInfo>(queryUrl)
+
+  return data
 }
 
 const apiServices = {
-  getSales
+  getSales,
+  getProfile
 }
 
 export default apiServices

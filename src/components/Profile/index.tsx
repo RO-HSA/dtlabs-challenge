@@ -1,28 +1,33 @@
 import ProfileInfos from './ProfileInfos'
-import Logo from '@/assets/logo.svg'
+import profilePic from '@/assets/profile-picture.jpg'
 import styles from './profile.module.css'
+import { useProfileQuery } from '@/hooks/queries/ProfileQueries'
+import { useMemo } from 'react'
 
 
 const Profile = () => {
   const { container, wrapper, firstSection, secondSection, name, occupancy } = styles
+  const { data } = useProfileQuery()
+
+  const profileData = useMemo(() => data, [data])
+
+  if (!profileData) return <h1>Loading...</h1>
 
   return (
     <div className={container}>
       <div className={wrapper}>
         <div className={firstSection}>
-          <img src={Logo} alt="Profile picture" />
-          <span className={name}>Marcelo Eduardo Benencase</span>
-          <span className={occupancy}>Mestre do Bingo</span>
+          <img src={profilePic} alt="Profile picture" />
+          <span className={name}>{`${profileData?.first_name} ${profileData?.last_name}`}</span>
+          <span className={occupancy}>{profileData?.occupancy}</span>
         </div>
-        <div>
-          <div className={secondSection}>
-            <ProfileInfos label="Primeiro Nome" data="Marcelo" />
-            <ProfileInfos label="Sobrenome" data="Benencase" />
-            <ProfileInfos label="Telefone" data="Benencase" />
-            <ProfileInfos label="E-mail" data="Benencase" />
-            <ProfileInfos label="CPF" data="Benencase" />
-            <ProfileInfos label="ID" data="Benencase" />
-          </div>
+        <div className={secondSection}>
+          <ProfileInfos label="Primeiro Nome" data={profileData?.first_name} />
+          <ProfileInfos label="Sobrenome" data={profileData?.last_name} />
+          <ProfileInfos label="Telefone" data={profileData?.phone} />
+          <ProfileInfos label="E-mail" data={profileData?.email} />
+          <ProfileInfos label="CPF" data={profileData?.cpf} />
+          <ProfileInfos label="ID" data="21323-12312-31290" />
         </div>
       </div>
     </div>

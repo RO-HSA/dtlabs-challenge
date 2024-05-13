@@ -10,6 +10,8 @@
 }
 
 .wrapper span {
+  font-size: 14px;
+  font-weight: 500;
   border-radius: 7px;
   border: 1.5px solid #E1E1E1;
   min-width: 250px;
