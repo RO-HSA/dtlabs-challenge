@@ -1,8 +1,9 @@
+import { useMemo } from 'react'
 import ProfileInfos from './ProfileInfos'
+import Loading from '../Loading'
+import { useProfileQuery } from '@/hooks/queries/ProfileQueries'
 import profilePic from '@/assets/profile-picture.jpg'
 import styles from './profile.module.css'
-import { useProfileQuery } from '@/hooks/queries/ProfileQueries'
-import { useMemo } from 'react'
 
 
 const Profile = () => {
@@ -11,7 +12,7 @@ const Profile = () => {
 
   const profileData = useMemo(() => data, [data])
 
-  if (!profileData) return <h1>Loading...</h1>
+  if (!profileData) return <Loading />
 
   return (
     <div className={container}>

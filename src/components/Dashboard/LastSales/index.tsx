@@ -1,4 +1,5 @@
 import { FC, useMemo } from 'react'
+import Loading from '@/components/Loading'
 import { useSalesQuery } from '@/hooks/queries/SalesQueries'
 import styles from './lastSales.module.css'
 
@@ -17,7 +18,7 @@ const LastSales: FC = () => {
     )))
   }, [data])
 
-  if (isLoading) return <h1>Loading...</h1>
+  if (isLoading) return <Loading />
 
   return (
     <>
