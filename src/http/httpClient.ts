@@ -4,11 +4,19 @@ import { Sales } from "@/types/sales"
 import { UserInfo, UserToken } from "@/types/user"
 import { dateTimeIntl } from "@/utils/DateTime"
 import { TOKEN_KEY } from "@/utils/keys"
+import { Login } from "@/types/login"
 
 const apiClient = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
   headers: {
     "Content-Type": "application/json",
+  }
+})
+
+const apiLoginClient = axios.create({
+  baseURL: import.meta.env.VITE_API_URL,
+  headers: {
+    "Content-Type": "multipart/form-data",
   }
 })
 
@@ -75,14 +83,8 @@ const getProfile = async ({ queryKey }: any) => {
   return data
 }
 
-const login = async ({ queryKey }: any) => {
-  const queryUrl = queryKey[0]
-  const params = queryKey[1]
-  console.log(queryKey[1])
-  
-  const { data } = await apiClient.post<UserToken>(queryUrl, params)
-
-  return data
+const login = async (data: Login) => {
+  return await apiLoginClient.post<UserToken>('login', data)
 }
 
 const apiServices = {

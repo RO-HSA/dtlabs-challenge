@@ -1,8 +1,7 @@
-import { useQuery } from '@tanstack/react-query'
+import { useMutation, } from '@tanstack/react-query'
 import apiServices from '@/http/httpClient'
-import { UserToken } from '@/types/user'
-import { Login } from '@/types/login'
+import { LoginResponse } from '@/types/login'
 
-export const useLoginMutation = (params: Login) => {
-  return useQuery<UserToken>({ queryKey: ['login', params], queryFn: apiServices.login} )
+export const useLoginMutation = (onSuccess: (data: LoginResponse) => void, onError: (error: Error) => void) => {
+  return useMutation({ mutationFn: apiServices.login, onSuccess: onSuccess, onError: onError})
 }

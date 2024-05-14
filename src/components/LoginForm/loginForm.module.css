@@ -7,7 +7,9 @@
 }
 
 .form {
-    padding: 43px 24px 12px 24px;
+  display: flex;
+  flex-direction: column;
+  padding: 43px 24px 12px 24px;
 }
 
 .inputGroup {
@@ -44,6 +46,11 @@
     -webkit-text-security: square;
 }
 
+.btnContainer {
+  align-self: center;
+  margin-top: 72px;
+}
+
 .loginBtn {
     display: flex;
     justify-content: center;
@@ -56,5 +63,5 @@
     border-radius: 20px;
     font-size: 24px;
     font-weight: 600;
-    margin-top: 72px;
+    cursor: pointer;
 }
