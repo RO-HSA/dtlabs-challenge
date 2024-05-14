@@ -16,7 +16,7 @@ const Users = () => {
       <CustomDate />
       <div className={filter}>
         <label>Ordernar por</label>
-        <select onSelect={() => setOrder}>
+        <select onChange={(e) => setOrder(e.target.value)}>
           <option value="asc">Ordem Crescente</option>
           <option value="desc">Ordem Decrescente</option>
         </select>

@@ -1,4 +1,4 @@
-import { useMemo } from "react"
+import { useEffect, useMemo } from "react"
 import { useSalesQuery } from "@/hooks/queries/SalesQueries"
 import Loading from "@/components/Loading"
 
@@ -11,6 +11,9 @@ const Sales = () => {
   const { grid, line, name } = styles
   const { data, isLoading } = useSalesQuery()
   const { order } = useOrdering()
+  useEffect(() => {
+    console.log(order)
+  }, [order])
 
   const list = useMemo(() => {
     const dataArr: SalesType[] = data ?? []
