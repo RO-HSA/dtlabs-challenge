@@ -1,0 +1,17 @@
+.filter {
+  display: flex;
+  flex-direction: column;
+  margin-top: 17px;
+  margin-bottom: 46px;
+  gap: 4px;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.filter select {
+  background-color: transparent;
+  max-width: 177px;
+  border: 1.84px solid #AEAEAE;
+  border-radius: 7px;
+  padding: 12px 0 12px 12px;
+}

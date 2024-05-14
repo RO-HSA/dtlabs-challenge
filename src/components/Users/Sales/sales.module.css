@@ -1,0 +1,25 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 33px 45px 45px 45px;
+  background-color: var(--sidebar-bg);
+  border-radius: 10px;
+}
+
+.line {
+  display: grid;
+  grid-template-columns: auto auto;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--grid-stroke);
+  align-items: center;
+}
+
+.line p:nth-child(2) {
+  justify-self: flex-end;
+}
+
+.name {
+  display: flex;
+  align-items: center;
+  gap: 31px;
+}
