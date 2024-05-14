@@ -1,10 +1,13 @@
 import { RouterProvider } from 'react-router-dom'
 
 import router from './routes'
+import { OrderingContextProvider } from './contexts/OrderingContext'
 
 function App() {
   return (
-    <RouterProvider router={router} />
+    <OrderingContextProvider>
+      <RouterProvider router={router} />
+    </OrderingContextProvider>
   )
 }
 

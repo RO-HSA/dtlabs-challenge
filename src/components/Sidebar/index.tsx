@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { PiHouseFill } from 'react-icons/pi'
 import { AiOutlineLineChart } from "react-icons/ai"
 import { BiSolidData } from "react-icons/bi"
@@ -11,6 +11,7 @@ import styles from './sidebar.module.css'
 
 const Sidebar = () => {
   const { menu, sidebar, logoWrapper, menuItems, menuItem, active, separator } = styles
+  const location = useLocation().pathname
 
   return (
     <div className={sidebar}>
@@ -19,22 +20,22 @@ const Sidebar = () => {
       </div>
       <nav className={menu}>
         <div className={menuItems}>
-          <Link to="/dashboard" className={[menuItem, active].join(" ")}>
+          <Link to="/dashboard" className={[menuItem, location === '/dashboard' ? active : ''].join(" ")}>
             <PiHouseFill size={32} />
             Dashboard
           </Link>
-          <Link to="/" className={menuItem}>
+          <Link to="/graficos" className={[menuItem, location === '/graficos' ? active : ''].join(" ")}>
             <AiOutlineLineChart size={32} />
             Gráficos
           </Link>
-          <Link to="/" className={menuItem}>
+          <Link to="/usuarios" className={[menuItem, location === '/usuarios' ? active : ''].join(" ")}>
             <BiSolidData size={32} />
-            Usuário
+            Usuários
           </Link>
         </div>
         <Separator width='94px' height='0.5px' bgColor="#BCBCBC" className={separator} />
         <div className={menuItems}>
-          <Link to="/profile" className={[menuItem].join(" ")}>
+          <Link to="/profile" className={[menuItem, location === '/profile' ? active : ''].join(" ")}>
             <PiUserCircleThin size={32} />
             Perfil
           </Link>

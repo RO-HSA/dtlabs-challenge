@@ -1,11 +1,11 @@
 import { FC, useMemo } from 'react'
 import Loading from '@/components/Loading'
-import { useSalesQuery } from '@/hooks/queries/SalesQueries'
+import { useUserSalesQuery } from '@/hooks/queries/SalesQueries'
 import styles from './lastSales.module.css'
 
 const LastSales: FC = () => {
   const { gridContainer, gridLine, title } = styles
-  const { data, isLoading } = useSalesQuery()
+  const { data, isLoading } = useUserSalesQuery()
 
   const list = useMemo(() => {
     return (data?.map((item, index) => (

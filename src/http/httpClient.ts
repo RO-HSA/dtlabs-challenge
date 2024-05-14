@@ -34,7 +34,17 @@ apiClient.interceptors.response.use(
   }
 )
 
+type SalesBySeller = { [key: string]: number }
+
 const getSales = async ({ queryKey }: any) => {
+  const queryUrl = queryKey[0]
+
+  const { data } = await apiClient.get<Sales[]>(queryUrl)
+
+  return data
+}
+
+const getUserSales = async ({ queryKey }: any) => {
   const queryUrl = queryKey[0]
 
   const { data } = await apiClient.get<Sales[]>(queryUrl)
@@ -69,6 +79,7 @@ const getProfile = async ({ queryKey }: any) => {
 
 const apiServices = {
   getSales,
+  getUserSales,
   getProfile
 }
 

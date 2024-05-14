@@ -5,11 +5,11 @@ import PageTitle from '../PageTitle'
 
 const Dashboard: FC = () => {
   return (
-    <>
+    <div>
       <PageTitle>Dashboard</PageTitle>
       <CustomDate />
       <LastSales />
-    </>
+    </div>
   )
 }
 

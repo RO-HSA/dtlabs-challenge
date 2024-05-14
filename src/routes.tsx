@@ -3,6 +3,7 @@ import Home from '@/pages/Home'
 import Dashboard from "@/components/Dashboard"
 import Profile from "./components/Profile"
 import NotFound from "./components/NotFound"
+import Users from "./components/Users"
 
 const router = createBrowserRouter([
   {
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
       {
         path: '/dashboard',
         element: <Dashboard />
+      },
+      {
+        path: '/usuarios',
+        element: <Users />
       },
       {
         path: '/profile',
