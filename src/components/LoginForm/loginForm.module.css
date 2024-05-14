@@ -1,0 +1,60 @@
+.wrapper {
+    background-color: var(--sidebar-bg);
+    border-radius: 20px;
+    border: 1px solid #FFF;
+    box-shadow: 2px 2px 4px 0px rgba(255, 153, 0, 0.60);
+    padding: 22px 15px;
+}
+
+.form {
+    padding: 43px 24px 12px 24px;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form > div {
+    margin-bottom: 47px;
+}
+
+.inputGroup label {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.inputGroup input {
+    max-height: 42px;
+    padding: 7px 14px;
+    border-radius: 20px;
+    border: 1px solid #000;
+}
+
+.inputGroup input[type="email"] {
+    font-size: 18px;
+    font-weight: 600;
+    color: #937D7D;
+}
+
+.inputGroup input[type="password"] {
+    font-size: 24px;
+    font-weight: 600;
+    -webkit-text-security: square;
+}
+
+.loginBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    width: 300px;
+    background-color: #F90;
+    color: #FFFFFF;
+    border: #FFFFFF;
+    border-radius: 20px;
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 72px;
+}

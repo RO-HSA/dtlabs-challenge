@@ -1,9 +1,9 @@
 import axios from "axios"
 
 import { Sales } from "@/types/sales"
+import { UserInfo, UserToken } from "@/types/user"
 import { dateTimeIntl } from "@/utils/DateTime"
 import { TOKEN_KEY } from "@/utils/keys"
-import { UserInfo } from "@/types/user"
 
 const apiClient = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
@@ -33,8 +33,6 @@ apiClient.interceptors.response.use(
     }
   }
 )
-
-type SalesBySeller = { [key: string]: number }
 
 const getSales = async ({ queryKey }: any) => {
   const queryUrl = queryKey[0]
@@ -77,10 +75,21 @@ const getProfile = async ({ queryKey }: any) => {
   return data
 }
 
+const login = async ({ queryKey }: any) => {
+  const queryUrl = queryKey[0]
+  const params = queryKey[1]
+  console.log(queryKey[1])
+  
+  const { data } = await apiClient.post<UserToken>(queryUrl, params)
+
+  return data
+}
+
 const apiServices = {
   getSales,
   getUserSales,
-  getProfile
+  getProfile,
+  login
 }
 
 export default apiServices

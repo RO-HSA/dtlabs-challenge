@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react"
+import { useMemo } from "react"
 import { useSalesQuery } from "@/hooks/queries/SalesQueries"
 import Loading from "@/components/Loading"
 
@@ -11,11 +11,8 @@ const Sales = () => {
   const { grid, line, name } = styles
   const { data, isLoading } = useSalesQuery()
   const { order } = useOrdering()
-  useEffect(() => {
-    console.log(order)
-  }, [order])
 
-  const list = useMemo(() => {
+  const salesArr = useMemo(() => {
     const dataArr: SalesType[] = data ?? []
 
     const salesBySellerAcc: Map<string, number> = new Map()
@@ -28,7 +25,7 @@ const Sales = () => {
 
     const salesArr = Array.from(salesBySellerAcc.entries()).map(([sellerName, totalPrice]) => {
       return { name: sellerName, value: totalPrice }
-    }).sort((a, b) => b.value - a.value).map((item) => {
+    }).map((item) => {
         return {
           name: item.name,
           originalValue: item.value,
@@ -36,17 +33,31 @@ const Sales = () => {
         }
     })
 
-    const filter = salesArr.sort((a, b) => (order === 'asc' ? b.originalValue - a.originalValue : a.originalValue - b.originalValue))
+    return salesArr
+  }, [data])
 
-    const list = filter.map((item, index) => (
-      <div className={line} key={index}>
-        <p className={name}><Medal bgColor={index === 0 ? '#FFD700' : index === 1 ? '#C0C0C0' : index === 2 ? '#CD7F32' : ''} />{item.name}</p>
-        <p>{item.newValue}</p>
-      </div>
-    ))
+  const list = useMemo(() => {
+    const filter = salesArr.sort((a, b) => (order === 'asc' ? b.originalValue - a.originalValue : a.originalValue - b.originalValue))
+    const list = filter.map((item, index) => {
+      if (order === 'asc') {
+        return (
+          <div className={line} key={index}>
+            <p className={name}><Medal bgColor={index === 0 ? '#FFD700' : index === 1 ? '#C0C0C0' : index === 2 ? '#CD7F32' : ''} />{item.name}</p>
+            <p>{item.newValue}</p>
+          </div>
+        )
+      }
+
+      return (
+        <div className={line} key={index}>
+          <p className={name}><Medal bgColor={index === filter.length ? '#FFD700' : index === (filter.length - 1) ? '#C0C0C0' : index === (filter.length - 2) ? '#CD7F32' : ''} />{item.name}</p>
+          <p>{item.newValue}</p>
+        </div>
+      )
+    })
 
     return list
-  }, [data, order])
+  }, [order, salesArr])
 
   if (isLoading) return <Loading />
 
