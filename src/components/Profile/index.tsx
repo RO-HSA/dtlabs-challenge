@@ -5,9 +5,9 @@ import { useProfileQuery } from '@/hooks/queries/ProfileQueries'
 import profilePic from '@/assets/profile-picture.jpg'
 import styles from './profile.module.css'
 
-
 const Profile = () => {
-  const { container, wrapper, firstSection, secondSection, name, occupancy } = styles
+  const { container, wrapper, firstSection, secondSection, name, occupancy } =
+    styles
   const { data } = useProfileQuery()
 
   const profileData = useMemo(() => data, [data])
@@ -19,7 +19,9 @@ const Profile = () => {
       <div className={wrapper}>
         <div className={firstSection}>
           <img src={profilePic} alt="Profile picture" />
-          <span className={name}>{`${profileData?.first_name} ${profileData?.last_name}`}</span>
+          <span
+            className={name}
+          >{`${profileData?.first_name} ${profileData?.last_name}`}</span>
           <span className={occupancy}>{profileData?.occupancy}</span>
         </div>
         <div className={secondSection}>

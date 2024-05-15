@@ -4,12 +4,15 @@ import styles from './notFound.module.css'
 import robot from '@/assets/robot.png'
 
 interface Props {
-  message?: string;
-  errorCode?: string;
+  message?: string
+  errorCode?: string
 }
 
-const NotFound: FC<Props> = ({ message = "Page not found.", errorCode = '404'}) => {
-  const {container, title, error} = styles
+const NotFound: FC<Props> = ({
+  message = 'Page not found.',
+  errorCode = '404'
+}) => {
+  const { container, title, error } = styles
   return (
     <div className={container}>
       <div>

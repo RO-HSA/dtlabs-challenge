@@ -1,10 +1,10 @@
-import { FC } from "react"
+import { FC } from 'react'
 
 import styles from './profileInfos.module.css'
 
 interface Props {
-  label: string;
-  data: string;
+  label: string
+  data: string
 }
 
 const ProfileInfos: FC<Props> = ({ label, data }) => {

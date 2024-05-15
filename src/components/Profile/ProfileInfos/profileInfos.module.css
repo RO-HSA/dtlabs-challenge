@@ -4,7 +4,7 @@
 }
 
 .wrapper label {
-  color: #AEAEAE;
+  color: #aeaeae;
   font-size: 16px;
   font-weight: 500;
 }
@@ -13,7 +13,7 @@
   font-size: 14px;
   font-weight: 500;
   border-radius: 7px;
-  border: 1.5px solid #E1E1E1;
+  border: 1.5px solid #e1e1e1;
   min-width: 250px;
   padding: 10px;
 }

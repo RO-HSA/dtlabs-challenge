@@ -1,11 +1,11 @@
-import LoginForm from "@/components/LoginForm"
+import LoginForm from '@/components/LoginForm'
 
 const Login = () => {
-    return (
-        <div className='loginContainer'>
-          <LoginForm />
-        </div>
-    )
+  return (
+    <div className="loginContainer">
+      <LoginForm />
+    </div>
+  )
 }
 
 export default Login

@@ -3,5 +3,8 @@ import apiServices from '@/http/httpClient'
 import { UserInfo } from '@/types/user'
 
 export const useProfileQuery = () => {
-  return useQuery<UserInfo>({ queryKey: ['users/me'], queryFn: apiServices.getProfile })
+  return useQuery<UserInfo>({
+    queryKey: ['users/me'],
+    queryFn: apiServices.getProfile
+  })
 }

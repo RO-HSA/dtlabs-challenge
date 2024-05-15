@@ -5,7 +5,7 @@
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background-color: #FFF;
+  background-color: #fff;
 }
 
 .container div {
@@ -20,9 +20,8 @@
 }
 
 .error {
-  color: #A3A3A3;
+  color: #a3a3a3;
   font-size: 40px;
   font-weight: 600;
   margin-bottom: 52px;
 }
-

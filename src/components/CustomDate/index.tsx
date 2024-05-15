@@ -3,7 +3,7 @@ import { getCurrentDate } from '@/utils/DateTime'
 import styles from './customDate.module.css'
 
 interface Props {
-  fontSize?: string,
+  fontSize?: string
   className?: string
 }
 
@@ -12,7 +12,9 @@ const CustomDate: FC<Props> = ({ className, fontSize = '32px' }) => {
 
   return (
     <div className={styles.dateWrapper}>
-      <p style={{fontSize}} className={[styles.date, className].join(" ")}>{ currentDate }</p>
+      <p style={{ fontSize }} className={[styles.date, className].join(' ')}>
+        {currentDate}
+      </p>
     </div>
   )
 }

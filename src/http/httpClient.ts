@@ -1,23 +1,23 @@
-import axios from "axios"
+import axios from 'axios'
 
-import { Sales } from "@/types/sales"
-import { UserInfo, UserToken } from "@/types/user"
-import { dateTimeIntl } from "@/utils/DateTime"
-import { TOKEN_KEY } from "@/utils/keys"
-import { Login } from "@/types/login"
-import { logout } from "@/utils/utils"
+import { Sales } from '@/types/sales'
+import { UserInfo, UserToken } from '@/types/user'
+import { dateTimeIntl } from '@/utils/DateTime'
+import { TOKEN_KEY } from '@/utils/keys'
+import { Login } from '@/types/login'
+import { logout } from '@/utils/utils'
 
 const apiClient = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
   headers: {
-    "Content-Type": "application/json",
+    'Content-Type': 'application/json'
   }
 })
 
 const apiLoginClient = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
   headers: {
-    "Content-Type": "multipart/form-data",
+    'Content-Type': 'multipart/form-data'
   }
 })
 
@@ -63,15 +63,18 @@ const getUserSales = async ({ queryKey }: any) => {
     return dateA.getTime() - dateB.getTime()
   })
 
-  const newData = sortedByDate.map((item) => {
-    const dateTime = dateTimeIntl(new Date(item.date))
-    const data = {
-      ...item,
-      date: dateTime
-    }
+  const newData = sortedByDate
+    .map((item) => {
+      const dateTime = dateTimeIntl(new Date(item.date))
+      const data = {
+        ...item,
+        date: dateTime
+      }
 
-    return data
-  }).reverse().slice(0, 4)
+      return data
+    })
+    .reverse()
+    .slice(0, 4)
 
   return newData
 }

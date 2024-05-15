@@ -40,20 +40,38 @@ const LoginForm = () => {
         <form className={form} onSubmit={handleSubmit}>
           <div className={inputGroup}>
             <label htmlFor="email">Email</label>
-            <input type="email" id='email' disabled={isPending} onChange={(e) => setUsername(e.target.value)} value={username} required autoFocus autoComplete={username}/>
+            <input
+              type="email"
+              id="email"
+              disabled={isPending}
+              onChange={(e) => setUsername(e.target.value)}
+              value={username}
+              required
+              autoFocus
+              autoComplete={username}
+            />
           </div>
           <div className={inputGroup}>
             <label htmlFor="password">Senha</label>
-            <input type="password" id='password' disabled={isPending} onChange={(e) => setPassword(e.target.value)} value={password} required autoComplete='current-password' />
-        </div>
-        <div className={btnContainer}>
-          {isPending ? (
-            <Loading />
-          ) : (
-            <button type="submit" className={loginBtn}>Login</button>
-
-          )}
-        </div>
+            <input
+              type="password"
+              id="password"
+              disabled={isPending}
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+              required
+              autoComplete="current-password"
+            />
+          </div>
+          <div className={btnContainer}>
+            {isPending ? (
+              <Loading />
+            ) : (
+              <button type="submit" className={loginBtn}>
+                Login
+              </button>
+            )}
+          </div>
         </form>
       </div>
     </>
