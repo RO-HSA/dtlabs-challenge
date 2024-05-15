@@ -5,6 +5,7 @@ import { BiSolidData } from "react-icons/bi"
 import { PiUserCircleThin } from "react-icons/pi"
 import { MdLogout } from "react-icons/md"
 
+import { logout } from '@/utils/utils'
 import Separator from './Separator'
 import logo from '@/assets/logo.svg'
 import styles from './sidebar.module.css'
@@ -20,7 +21,7 @@ const Sidebar = () => {
       </div>
       <nav className={menu}>
         <div className={menuItems}>
-          <Link to="/dashboard" className={[menuItem, location === '/dashboard' ? active : ''].join(" ")}>
+          <Link to="/" className={[menuItem, location === '/' ? active : ''].join(" ")}>
             <PiHouseFill size={32} />
             Dashboard
           </Link>
@@ -35,11 +36,11 @@ const Sidebar = () => {
         </div>
         <Separator width='94px' height='0.5px' bgColor="#BCBCBC" className={separator} />
         <div className={menuItems}>
-          <Link to="/profile" className={[menuItem, location === '/profile' ? active : ''].join(" ")}>
+          <Link to="/perfil" className={[menuItem, location === '/perfil' ? active : ''].join(" ")}>
             <PiUserCircleThin size={32} />
             Perfil
           </Link>
-          <Link to="/" className={menuItem}>
+          <Link to="/login" onClick={logout} className={menuItem}>
             <MdLogout size={32} />
             Logout
           </Link>

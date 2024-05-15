@@ -37,7 +37,14 @@ const Sales = () => {
   }, [data])
 
   const list = useMemo(() => {
-    const filter = salesArr.sort((a, b) => (order === 'asc' ? b.originalValue - a.originalValue : a.originalValue - b.originalValue))
+    let filter
+
+    if (order === 'asc') {
+      filter = salesArr.sort((a, b) => (b.originalValue - a.originalValue))
+    } else {
+      filter = salesArr.sort((a, b) => (a.originalValue - b.originalValue))
+    }
+
     const list = filter.map((item, index) => {
       if (order === 'asc') {
         return (
@@ -50,7 +57,7 @@ const Sales = () => {
 
       return (
         <div className={line} key={index}>
-          <p className={name}><Medal bgColor={index === filter.length ? '#FFD700' : index === (filter.length - 1) ? '#C0C0C0' : index === (filter.length - 2) ? '#CD7F32' : ''} />{item.name}</p>
+          <p className={name}><Medal bgColor={index === (filter.length - 1) ? '#FFD700' : index === (filter.length - 2) ? '#C0C0C0' : index === (filter.length - 3) ? '#CD7F32' : ''} />{item.name}</p>
           <p>{item.newValue}</p>
         </div>
       )

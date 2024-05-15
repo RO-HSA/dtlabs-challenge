@@ -5,6 +5,7 @@ import { UserInfo, UserToken } from "@/types/user"
 import { dateTimeIntl } from "@/utils/DateTime"
 import { TOKEN_KEY } from "@/utils/keys"
 import { Login } from "@/types/login"
+import { logout } from "@/utils/utils"
 
 const apiClient = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
@@ -35,7 +36,7 @@ apiClient.interceptors.response.use(
   (response) => response,
   (err) => {
     if (err.response.status === 401) {
-      localStorage.removeItem(TOKEN_KEY)
+      logout()
     } else {
       return Promise.reject(err)
     }

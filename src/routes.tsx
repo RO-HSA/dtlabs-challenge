@@ -1,27 +1,33 @@
 import { createBrowserRouter } from "react-router-dom"
-import Home from '@/pages/Home'
+import RootLayout from '@/pages/RootLayout'
 import Login from '@/pages/Login'
 import Dashboard from "@/components/Dashboard"
 import Profile from "./components/Profile"
 import NotFound from "./components/NotFound"
 import Users from "./components/Users"
+import ProtectedRoutes from "./components/ProtectedRoutes"
 
 const router = createBrowserRouter([
   {
-    path: '/',
-    element: <Home />,
+    element: <ProtectedRoutes />,
     children: [
       {
-        path: '/dashboard',
-        element: <Dashboard />
-      },
-      {
-        path: '/usuarios',
-        element: <Users />
-      },
-      {
-        path: '/profile',
-        element: <Profile />
+        path: '/',
+        element: <RootLayout />,
+        children: [
+          {
+            path: '/',
+            element: <Dashboard />
+          },
+          {
+            path: '/usuarios',
+            element: <Users />
+          },
+          {
+            path: '/perfil',
+            element: <Profile />
+          }
+        ]
       }
     ]
   },

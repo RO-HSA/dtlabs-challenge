@@ -1,7 +1,7 @@
 import Sidebar from "@/components/Sidebar"
 import { Outlet } from "react-router-dom"
 
-const Home = () => {
+const RootLayout = () => {
   return (
     <div className="container">
       <menu>
@@ -14,4 +14,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default RootLayout

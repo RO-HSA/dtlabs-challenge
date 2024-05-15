@@ -14,7 +14,7 @@ const LoginForm = () => {
 
   const onSuccess = (response: LoginResponse) => {
     localStorage.setItem(TOKEN_KEY, response.data.access_token)
-    navigate('/dashboard')
+    navigate('/')
   }
   const onError = (error: Error) => { console.log(error) }
   const mutation = useLoginMutation(onSuccess, onError)
