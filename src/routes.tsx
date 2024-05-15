@@ -10,6 +10,7 @@ import ProtectedRoutes from "./components/ProtectedRoutes"
 const router = createBrowserRouter([
   {
     element: <ProtectedRoutes />,
+    errorElement: <NotFound />,
     children: [
       {
         path: '/',
