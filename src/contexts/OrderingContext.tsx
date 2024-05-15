@@ -1,8 +1,13 @@
-import { createContext, FC, ReactNode, useState } from 'react'
+import { createContext, Dispatch, FC, ReactNode, SetStateAction, useState } from 'react'
 
-export const OrderingContext = createContext({
+interface OrderingContextType {
+  order: string;
+  setOrder: Dispatch<SetStateAction<string>>;
+}
+
+export const OrderingContext = createContext<OrderingContextType>({
   order: 'asc',
-  setOrder: (order: string) => {}
+  setOrder: () => {}
 })
 
 interface ProviderProps {

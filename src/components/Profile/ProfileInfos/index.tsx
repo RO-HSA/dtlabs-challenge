@@ -3,9 +3,9 @@ import { FC } from 'react'
 import styles from './profileInfos.module.css'
 
 interface Props {
-  label: string;
-  data: string;
-  color?: string;
+  label: string
+  data: string
+  color?: string
 }
 
 const ProfileInfos: FC<Props> = ({ label, data, color }) => {
