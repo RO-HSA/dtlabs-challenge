@@ -1,3 +1,8 @@
+.container {
+  max-height: 100vh;
+  height: 100%;
+}
+
 .filter {
   display: flex;
   flex-direction: column;
@@ -14,4 +19,10 @@
   border: 1.84px solid #aeaeae;
   border-radius: 7px;
   padding: 12px 0 12px 12px;
+}
+
+.salesContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

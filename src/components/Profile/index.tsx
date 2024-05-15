@@ -27,10 +27,9 @@ const Profile = () => {
         <div className={secondSection}>
           <ProfileInfos label="Primeiro Nome" data={profileData?.first_name} />
           <ProfileInfos label="Sobrenome" data={profileData?.last_name} />
-          <ProfileInfos label="Telefone" data={profileData?.phone} />
+          <ProfileInfos label="Telefone" data={profileData?.phone} color='#7D90F3'/>
           <ProfileInfos label="E-mail" data={profileData?.email} />
           <ProfileInfos label="CPF" data={profileData?.cpf} />
-          <ProfileInfos label="ID" data="21323-12312-31290" />
         </div>
       </div>
     </div>

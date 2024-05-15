@@ -6,12 +6,12 @@ import Sales from './Sales'
 import styles from './users.module.css'
 
 const Users = () => {
-  const { filter } = styles
+  const { container, filter, salesContainer } = styles
 
   const { setOrder } = useOrdering()
 
   return (
-    <div>
+    <div className={container}>
       <PageTitle>Usuários</PageTitle>
       <CustomDate />
       <div className={filter}>
@@ -21,7 +21,7 @@ const Users = () => {
           <option value="desc">Ordem Decrescente</option>
         </select>
       </div>
-      <div>
+      <div className={salesContainer}>
         <Sales />
       </div>
     </div>

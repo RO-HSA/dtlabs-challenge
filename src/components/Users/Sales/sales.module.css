@@ -4,6 +4,7 @@
   padding: 33px 45px 45px 45px;
   background-color: var(--sidebar-bg);
   border-radius: 10px;
+  width: 100%;
 }
 
 .line {

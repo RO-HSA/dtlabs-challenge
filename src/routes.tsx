@@ -1,4 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom'
+
 import RootLayout from '@/pages/RootLayout'
 import Login from '@/pages/Login'
 import Dashboard from '@/components/Dashboard'
@@ -6,6 +7,7 @@ import Profile from './components/Profile'
 import NotFound from './components/NotFound'
 import Users from './components/Users'
 import ProtectedRoutes from './components/ProtectedRoutes'
+import Charts from './components/Charts'
 
 const router = createBrowserRouter([
   {
@@ -27,6 +29,10 @@ const router = createBrowserRouter([
           {
             path: '/perfil',
             element: <Profile />
+          },
+          {
+            path: '/graficos',
+            element: <Charts />
           }
         ]
       }
