@@ -1,0 +1,27 @@
+.chartHeader {
+    max-width: 1000px;
+    border-bottom: 2px solid var(--border);
+}
+
+.filterGroup {
+  display: flex;
+  gap: 22px;
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  margin-top: 17px;
+  margin-bottom: 22px;
+  gap: 4px;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.filter select {
+  background-color: transparent;
+  max-width: 177px;
+  border: 1.84px solid #aeaeae;
+  border-radius: 7px;
+  padding: 12px 0 12px 12px;
+  }
