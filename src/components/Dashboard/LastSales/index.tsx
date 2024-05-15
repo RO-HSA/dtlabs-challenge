@@ -22,7 +22,7 @@ const LastSales: FC = () => {
 
   return (
     <>
-      {data && (
+      {data?.length !== 0 && (
         <>
           <h2 className={title}>Últimas vendas deste mês</h2>
           <div className={gridContainer}>{list}</div>
