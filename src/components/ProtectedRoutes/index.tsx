@@ -1,14 +1,16 @@
+import { useEffect, useState } from 'react'
 import { Navigate, Outlet, useLocation } from 'react-router-dom'
+
 import { useProfileQuery } from '@/hooks/queries/ProfileQueries'
 import { TOKEN_KEY } from '@/utils/keys'
-import Loading from '../Loading'
 import { AccessLevel } from '@/utils/AccesLevel'
-import { useEffect, useState } from 'react'
+import Loading from '../Loading'
 
 const ProtectedRoutes = () => {
   const [token, setToken] = useState<string | null>(
     localStorage.getItem(TOKEN_KEY)
   )
+
   const location = useLocation()
 
   useEffect(() => {

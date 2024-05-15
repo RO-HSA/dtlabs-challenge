@@ -5,6 +5,8 @@
   background-color: var(--sidebar-bg);
   border-radius: 10px;
   width: 100%;
+  max-height: 560px;
+  overflow-y: scroll;
 }
 
 .line {
@@ -13,6 +15,7 @@
   padding: 12px 0;
   border-bottom: 1px solid var(--grid-stroke);
   align-items: center;
+  height: 100%;
 }
 
 .line p:nth-child(2) {

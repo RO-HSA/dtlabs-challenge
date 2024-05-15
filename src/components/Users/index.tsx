@@ -6,12 +6,12 @@ import Sales from './Sales'
 import styles from './users.module.css'
 
 const Users = () => {
-  const { container, filter, salesContainer } = styles
+  const { filter, salesContainer } = styles
 
   const { setOrder } = useOrdering()
 
   return (
-    <div className={container}>
+    <div>
       <PageTitle>Usuários</PageTitle>
       <CustomDate />
       <div className={filter}>
