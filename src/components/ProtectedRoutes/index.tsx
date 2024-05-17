@@ -12,6 +12,7 @@ const ProtectedRoutes = () => {
   )
 
   const location = useLocation()
+  const { data, isLoading } = useProfileQuery()
 
   useEffect(() => {
     const updateToken = () => {
@@ -28,8 +29,6 @@ const ProtectedRoutes = () => {
   if (!token) {
     return <Navigate to="/login" replace={true} />
   }
-
-  const { data, isLoading } = useProfileQuery()
 
   if (isLoading) {
     return <Loading width="100vw" height="100vh" />

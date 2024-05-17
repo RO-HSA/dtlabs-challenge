@@ -10,16 +10,20 @@ import { SalesChartType } from '@/components/Charts/SalesChart'
 
 interface ModalContextType {
   isVisible: boolean;
-  content: SalesChartType | null;
+  title: string;
+  content: SalesChartType[];
   setIsVisible: Dispatch<SetStateAction<boolean>>;
-  setContent: Dispatch<SetStateAction<SalesChartType | null>>;
+  setTitle: Dispatch<SetStateAction<string>>;
+  setContent: Dispatch<SetStateAction<SalesChartType[]>>;
 }
 
 export const ModalContext = createContext<ModalContextType>({
   isVisible: false,
-  content: null,
+  title: '',
+  content: [],
   setIsVisible: () => {},
-  setContent: () => {}
+  setTitle: () => {},
+  setContent: () => {},
 })
 
 interface ProviderProps {
@@ -28,10 +32,11 @@ interface ProviderProps {
 
 export const ModalContextProvider: FC<ProviderProps> = ({ children }) => {
   const [isVisible, setIsVisible] = useState<boolean>(false)
-  const [content, setContent] = useState<SalesChartType | null>(null)
+  const [title, setTitle] = useState<string>('')
+  const [content, setContent] = useState<SalesChartType[]>([])
 
   return (
-    <ModalContext.Provider value={{ isVisible, setIsVisible, content, setContent }}>
+    <ModalContext.Provider value={{ isVisible, setIsVisible, title, setTitle, content, setContent }}>
       {children}
     </ModalContext.Provider>
   )

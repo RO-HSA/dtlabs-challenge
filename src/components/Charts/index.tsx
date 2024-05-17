@@ -8,9 +8,10 @@ import Loading from '../Loading'
 import getDailySales from '@/utils/DailySales'
 
 import styles from './charts.module.css'
+import ChartModal from './ChartModal'
 
 const Charts = () => {
-  const { chartHeader, filterGroup, filter, chartsContainer } = styles
+  const { chartHeader, filterGroup, filter, chart, chartsContainer } = styles
 
   const [sales, setSales] = useState<DailySale[]>([])
   const [year, setYear] = useState('')
@@ -65,17 +66,21 @@ const Charts = () => {
       const daysFilteredByMonth = salesFilteredByYearSeller.filter(
         (item) => item.month === uniqueMonths[i]
       )
+
       const days: SalesChartType[] = []
 
       daysFilteredByMonth.forEach((item) => {
-        days.push({ day: item.day, value: item.total })
+        days.push({ day: item.day, value: Number(item.total.toFixed(2)) })
       })
+
       charts.push(
-        <SalesChart
-          title={monthLookup[uniqueMonths[i]]}
-          key={monthLookup[uniqueMonths[i]]}
-          data={days}
-        />
+        <div className={chart}>
+          <SalesChart
+            title={monthLookup[uniqueMonths[i]]}
+            key={monthLookup[uniqueMonths[i]]}
+            data={days}
+          />
+        </div>
       )
     }
 

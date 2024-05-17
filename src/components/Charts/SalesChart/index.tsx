@@ -3,13 +3,17 @@ import {
   Bar,
   BarChart,
   CartesianGrid,
+  Legend,
   Rectangle,
   ResponsiveContainer,
+  Tooltip,
   XAxis,
   YAxis
 } from 'recharts'
 import { PiArrowsOutBold } from 'react-icons/pi'
+import { PiArrowsInBold } from "react-icons/pi";
 
+import { useModal } from '@/hooks/useModal'
 import styles from './salesChart.module.css'
 
 export type SalesChartType = {
@@ -18,33 +22,52 @@ export type SalesChartType = {
 }
 
 interface Props {
-  title: string
-  data: SalesChartType[]
+  title: string;
+  data: SalesChartType[];
+  arrowSize?: number;
 }
 
-const SalesChart: FC<Props> = ({ data, title }) => {
+const SalesChart: FC<Props> = ({ data, title, arrowSize = 12 }) => {
   const { container, arrow, chart } = styles
+
+  const { isVisible, setIsVisible, setContent, setTitle } = useModal()
+
+  const openModal = () => {
+    setIsVisible(!isVisible)
+    setContent(data)
+    setTitle(title)
+  }
+
+  const closeModal = () => {
+    setIsVisible(!isVisible)
+    setContent([])
+    setTitle('')
+  }
 
   return (
     <div className={container}>
-      <div className={arrow}>
-        <PiArrowsOutBold size={12} color="#848484" />
+      <div onClick={isVisible ? closeModal : openModal} className={arrow}>
+        {isVisible ? (
+          <PiArrowsInBold size={arrowSize} color="#848484" />
+        ) : (
+          <PiArrowsOutBold size={arrowSize} color="#848484" />
+        )}
       </div>
       <div className={chart}>
         <span>{title}</span>
         <ResponsiveContainer
           height="100%"
           width="100%"
-          minHeight={170}
           minWidth={411}
+          minHeight={170}
         >
           <BarChart
             data={data}
-            margin={{ left: -30, right: 0, top: 0, bottom: 0 }}
+            margin={{ left: -30 }}
           >
             <CartesianGrid vertical={false} />
             <XAxis
-              dataKey="day"
+              dataKey='day'
               tick={{ fontSize: '0.7em' }}
               tickLine={false}
               axisLine={false}

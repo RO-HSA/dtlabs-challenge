@@ -22,7 +22,7 @@ interface ProviderProps {
 }
 
 export const OrderingContextProvider: FC<ProviderProps> = ({ children }) => {
-  const [order, setOrder] = useState('asc')
+  const [order, setOrder] = useState<string>('asc')
 
   return (
     <OrderingContext.Provider value={{ order, setOrder }}>
