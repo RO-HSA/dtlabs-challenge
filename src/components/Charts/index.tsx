@@ -8,7 +8,6 @@ import Loading from '../Loading'
 import getDailySales from '@/utils/DailySales'
 
 import styles from './charts.module.css'
-import ChartModal from './ChartModal'
 
 const Charts = () => {
   const { chartHeader, filterGroup, filter, chart, chartsContainer } = styles

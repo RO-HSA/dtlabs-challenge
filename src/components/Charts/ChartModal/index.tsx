@@ -12,7 +12,7 @@ const ChartModal = () => {
   }
 
   return (
-    <div style={{display: isVisible ? 'flex' : 'none'}} className={modal}>
+    <div style={{ display: isVisible ? 'flex' : 'none' }} className={modal}>
       <div className={modalContent}>
         <div>
           <SalesChart title={title} data={content} arrowSize={22} />
@@ -20,7 +20,7 @@ const ChartModal = () => {
       </div>
       <div className={overlay} onClick={closeModal}></div>
     </div>
-)
+  )
 }
 
 export default ChartModal

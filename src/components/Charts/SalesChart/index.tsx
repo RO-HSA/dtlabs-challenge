@@ -3,15 +3,13 @@ import {
   Bar,
   BarChart,
   CartesianGrid,
-  Legend,
   Rectangle,
   ResponsiveContainer,
-  Tooltip,
   XAxis,
   YAxis
 } from 'recharts'
 import { PiArrowsOutBold } from 'react-icons/pi'
-import { PiArrowsInBold } from "react-icons/pi";
+import { PiArrowsInBold } from 'react-icons/pi'
 
 import { useModal } from '@/hooks/useModal'
 import styles from './salesChart.module.css'
@@ -22,9 +20,9 @@ export type SalesChartType = {
 }
 
 interface Props {
-  title: string;
-  data: SalesChartType[];
-  arrowSize?: number;
+  title: string
+  data: SalesChartType[]
+  arrowSize?: number
 }
 
 const SalesChart: FC<Props> = ({ data, title, arrowSize = 12 }) => {
@@ -61,13 +59,10 @@ const SalesChart: FC<Props> = ({ data, title, arrowSize = 12 }) => {
           minWidth={411}
           minHeight={170}
         >
-          <BarChart
-            data={data}
-            margin={{ left: -30 }}
-          >
+          <BarChart data={data} margin={{ left: -30 }}>
             <CartesianGrid vertical={false} />
             <XAxis
-              dataKey='day'
+              dataKey="day"
               tick={{ fontSize: '0.7em' }}
               tickLine={false}
               axisLine={false}
