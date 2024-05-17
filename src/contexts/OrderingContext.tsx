@@ -8,8 +8,8 @@ import {
 } from 'react'
 
 interface OrderingContextType {
-  order: string
-  setOrder: Dispatch<SetStateAction<string>>
+  order: string;
+  setOrder: Dispatch<SetStateAction<string>>;
 }
 
 export const OrderingContext = createContext<OrderingContextType>({
