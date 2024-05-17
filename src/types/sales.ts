@@ -8,3 +8,11 @@ export interface Sales {
   seller: UserInfo
   price: number
 }
+
+export interface DailySale {
+  year: number;
+  month: number;
+  day: number;
+  total: number;
+  sellerFullName: string;
+}

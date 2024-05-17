@@ -1,0 +1,31 @@
+.container {
+  background-color: var(--sidebar-bg);
+  width: 438px;
+  height: 232px;
+  position: relative;
+  border-radius: 6px;
+  padding: 28px 4px 32px 4px;
+}
+
+.arrow {
+  position: absolute;
+  top: 17px;
+  right: 13px;
+}
+
+.chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.chart tspan {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.chart span {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+}

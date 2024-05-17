@@ -1,6 +1,6 @@
 .chartHeader {
-    max-width: 1000px;
-    border-bottom: 2px solid var(--border);
+  max-width: 1000px;
+  border-bottom: 2px solid var(--border);
 }
 
 .filterGroup {
@@ -20,8 +20,15 @@
 
 .filter select {
   background-color: transparent;
-  max-width: 177px;
+  width: 178px;
   border: 1.84px solid #aeaeae;
   border-radius: 7px;
   padding: 12px 0 12px 12px;
-  }
+}
+
+.chartsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 62px;
+  margin-top: 27px;
+}

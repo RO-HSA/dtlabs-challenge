@@ -3,7 +3,7 @@ import { Navigate, Outlet, useLocation } from 'react-router-dom'
 
 import { useProfileQuery } from '@/hooks/queries/ProfileQueries'
 import { TOKEN_KEY } from '@/utils/keys'
-import { AccessLevel } from '@/utils/AccesLevel'
+import { AccessLevel } from '@/utils//enums/AccesLevel'
 import Loading from '../Loading'
 
 const ProtectedRoutes = () => {
@@ -32,7 +32,7 @@ const ProtectedRoutes = () => {
   const { data, isLoading } = useProfileQuery()
 
   if (isLoading) {
-    return <Loading />
+    return <Loading width='100vw' height='100vh' />
   }
 
   const routesToCheck = ['/usuarios', '/graficos'].includes(location.pathname)
