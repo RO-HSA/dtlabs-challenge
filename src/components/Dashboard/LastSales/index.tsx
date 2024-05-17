@@ -1,4 +1,4 @@
-import { FC, useMemo } from 'react'
+import { FC, useEffect, useMemo } from 'react'
 import Loading from '@/components/Loading'
 import { useUserSalesQuery } from '@/hooks/queries/SalesQueries'
 import styles from './lastSales.module.css'
@@ -6,6 +6,10 @@ import styles from './lastSales.module.css'
 const LastSales: FC = () => {
   const { gridContainer, gridLine, title } = styles
   const { data, isLoading } = useUserSalesQuery()
+
+  useEffect(() => {
+    document.title = 'Dashboard'
+  }, [])
 
   const list = useMemo(() => {
     return data?.map((item, index) => (

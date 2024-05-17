@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useOrdering } from '@/hooks/useOrdering'
 import CustomDate from '../CustomDate'
 import PageTitle from '../PageTitle'
@@ -9,6 +10,10 @@ const Users = () => {
   const { filter, salesContainer } = styles
 
   const { setOrder } = useOrdering()
+
+  useEffect(() => {
+    document.title = 'Usuários'
+  }, [])
 
   return (
     <div>

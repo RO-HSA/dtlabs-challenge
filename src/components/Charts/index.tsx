@@ -18,6 +18,8 @@ const Charts = () => {
   const { data, isLoading } = useSalesQuery()
 
   useEffect(() => {
+    document.title = 'Gráficos'
+
     if (data) {
       const dailySales = getDailySales(data)
       setSales(dailySales)
@@ -71,6 +73,8 @@ const Charts = () => {
       daysFilteredByMonth.forEach((item) => {
         days.push({ day: item.day, value: Number(item.total.toFixed(2)) })
       })
+
+      days.sort((a, b) => a.day - b.day)
 
       charts.push(
         <div className={chart}>

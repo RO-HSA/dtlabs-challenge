@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 import styles from './notFound.module.css'
 
 import robot from '@/assets/robot.png'
@@ -12,6 +12,11 @@ const NotFound: FC<Props> = ({
   message = 'Page not found.',
   errorCode = '404'
 }) => {
+
+  useEffect(() => {
+    document.title = 'Not found'
+  }, [])
+
   const { container, title, error } = styles
   return (
     <div className={container}>

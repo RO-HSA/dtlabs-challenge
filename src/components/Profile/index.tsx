@@ -1,7 +1,7 @@
-import { useMemo } from 'react'
+import { useEffect, useMemo } from 'react'
+import { useProfileQuery } from '@/hooks/queries/ProfileQueries'
 import ProfileInfos from './ProfileInfos'
 import Loading from '../Loading'
-import { useProfileQuery } from '@/hooks/queries/ProfileQueries'
 import profilePic from '@/assets/profile-picture.jpg'
 import styles from './profile.module.css'
 
@@ -9,6 +9,10 @@ const Profile = () => {
   const { container, wrapper, firstSection, secondSection, name, occupancy } =
     styles
   const { data } = useProfileQuery()
+
+  useEffect(() => {
+    document.title = 'Perfil'
+  }, [])
 
   const profileData = useMemo(() => data, [data])
 
