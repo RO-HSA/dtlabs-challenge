@@ -1,13 +1,16 @@
+import { lazy, Suspense } from 'react'
 import { createBrowserRouter } from 'react-router-dom'
 
 import RootLayout from '@/pages/RootLayout'
 import Login from '@/pages/Login'
-import Dashboard from '@/components/Dashboard'
-import Profile from './components/Profile'
 import NotFound from './components/NotFound'
-import Users from './components/Users'
 import ProtectedRoutes from './components/ProtectedRoutes'
-import Charts from './components/Charts'
+import Loading from './components/Loading'
+
+const Dashboard = lazy(() => import('@/components/Dashboard'))
+const Profile = lazy(() => import('@/components/Profile'))
+const Users = lazy(() => import('@/components/Users'))
+const Charts = lazy(() => import('@/components/Charts'))
 
 const router = createBrowserRouter([
   {
@@ -20,19 +23,35 @@ const router = createBrowserRouter([
         children: [
           {
             path: '/',
-            element: <Dashboard />
+            element: (
+              <Suspense fallback={<Loading width='100vw' height='100vh' />}>
+                <Dashboard />
+              </Suspense>
+            )
           },
           {
             path: '/usuarios',
-            element: <Users />
+            element: (
+              <Suspense fallback={<Loading width='100vw' height='100vh' />}>
+                <Users />
+              </Suspense>
+            )
           },
           {
             path: '/perfil',
-            element: <Profile />
+            element: (
+              <Suspense fallback={<Loading width='100vw' height='100vh' />}>
+                <Profile />
+              </Suspense>
+            )
           },
           {
             path: '/graficos',
-            element: <Charts />
+            element: (
+              <Suspense fallback={<Loading width='100vw' height='100vh' />}>
+                <Charts />
+              </Suspense>
+            )
           }
         ]
       }
