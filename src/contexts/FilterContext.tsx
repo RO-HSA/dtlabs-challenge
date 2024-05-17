@@ -1,17 +1,24 @@
-import { createContext, Dispatch, FC, ReactNode, SetStateAction, useState } from 'react'
+import {
+  createContext,
+  Dispatch,
+  FC,
+  ReactNode,
+  SetStateAction,
+  useState
+} from 'react'
 
 interface FilterContextType {
-  year: string;
-  seller: string;
-  setYear: Dispatch<SetStateAction<string>>;
-  setSeller: Dispatch<SetStateAction<string>>;
+  year: string
+  seller: string
+  setYear: Dispatch<SetStateAction<string>>
+  setSeller: Dispatch<SetStateAction<string>>
 }
 
 export const FilterContext = createContext<FilterContextType>({
   year: '',
   seller: '',
   setYear: () => {},
-  setSeller: () => {},
+  setSeller: () => {}
 })
 
 interface ProviderProps {

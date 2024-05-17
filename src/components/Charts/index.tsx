@@ -52,7 +52,9 @@ const Charts = () => {
   }
 
   const newSalesData = useMemo(() => {
-    const salesFilteredByYearSeller = sales.filter((sale) => String(sale.year) === year && sale.sellerFullName === seller)
+    const salesFilteredByYearSeller = sales.filter(
+      (sale) => String(sale.year) === year && sale.sellerFullName === seller
+    )
     const monthsArr = salesFilteredByYearSeller.map((item) => item.month)
     const uniqueMonths = [...new Set(monthsArr)]
     const charts: JSX.Element[] = []
@@ -60,13 +62,21 @@ const Charts = () => {
     uniqueMonths.sort((a, b) => a - b)
 
     for (let i = 0; i < uniqueMonths.length; i++) {
-      const daysFilteredByMonth = salesFilteredByYearSeller.filter((item) => item.month === uniqueMonths[i])
+      const daysFilteredByMonth = salesFilteredByYearSeller.filter(
+        (item) => item.month === uniqueMonths[i]
+      )
       const days: SalesChartType[] = []
 
       daysFilteredByMonth.forEach((item) => {
-        days.push({day: item.day, value: item.total})
+        days.push({ day: item.day, value: item.total })
       })
-      charts.push(<SalesChart title={monthLookup[uniqueMonths[i]]} key={monthLookup[uniqueMonths[i]]} data={days}/>)
+      charts.push(
+        <SalesChart
+          title={monthLookup[uniqueMonths[i]]}
+          key={monthLookup[uniqueMonths[i]]}
+          data={days}
+        />
+      )
     }
 
     return charts
@@ -77,15 +87,17 @@ const Charts = () => {
   return (
     <div>
       <div className={chartHeader}>
-        <PageTitle marginBottom='4px'>Gráficos de Venda</PageTitle>
-        <CustomDate fontSize='16px' borderBottom='none'/>
+        <PageTitle marginBottom="4px">Gráficos de Venda</PageTitle>
+        <CustomDate fontSize="16px" borderBottom="none" />
         <div className={filterGroup}>
           <div className={filter}>
             <label>Ano de Referência</label>
             <select onChange={(e) => setYear(e.target.value)}>
               <option value=""></option>
               {years.map((year) => (
-                <option value={year} key={year}>{year}</option>
+                <option value={year} key={year}>
+                  {year}
+                </option>
               ))}
             </select>
           </div>
@@ -94,15 +106,15 @@ const Charts = () => {
             <select onChange={(e) => setSeller(e.target.value)}>
               <option></option>
               {sellers.map((seller) => (
-                <option value={seller} key={seller}>{seller}</option>
+                <option value={seller} key={seller}>
+                  {seller}
+                </option>
               ))}
             </select>
           </div>
         </div>
       </div>
-      <div className={chartsContainer}>
-        {newSalesData}
-      </div>
+      <div className={chartsContainer}>{newSalesData}</div>
     </div>
   )
 }

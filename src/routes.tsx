@@ -24,7 +24,7 @@ const router = createBrowserRouter([
           {
             path: '/',
             element: (
-              <Suspense fallback={<Loading width='100vw' height='100vh' />}>
+              <Suspense fallback={<Loading width="100vw" height="100vh" />}>
                 <Dashboard />
               </Suspense>
             )
@@ -32,7 +32,7 @@ const router = createBrowserRouter([
           {
             path: '/usuarios',
             element: (
-              <Suspense fallback={<Loading width='100vw' height='100vh' />}>
+              <Suspense fallback={<Loading width="100vw" height="100vh" />}>
                 <Users />
               </Suspense>
             )
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
           {
             path: '/perfil',
             element: (
-              <Suspense fallback={<Loading width='100vw' height='100vh' />}>
+              <Suspense fallback={<Loading width="100vw" height="100vh" />}>
                 <Profile />
               </Suspense>
             )
@@ -48,7 +48,7 @@ const router = createBrowserRouter([
           {
             path: '/graficos',
             element: (
-              <Suspense fallback={<Loading width='100vw' height='100vh' />}>
+              <Suspense fallback={<Loading width="100vw" height="100vh" />}>
                 <Charts />
               </Suspense>
             )

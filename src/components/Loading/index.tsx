@@ -2,7 +2,7 @@ import { FC } from 'react'
 import styles from './loading.module.css'
 
 interface Props {
-  width?: string;
+  width?: string
   height?: string
 }
 

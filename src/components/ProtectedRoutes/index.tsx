@@ -32,7 +32,7 @@ const ProtectedRoutes = () => {
   const { data, isLoading } = useProfileQuery()
 
   if (isLoading) {
-    return <Loading width='100vw' height='100vh' />
+    return <Loading width="100vw" height="100vh" />
   }
 
   const routesToCheck = ['/usuarios', '/graficos'].includes(location.pathname)

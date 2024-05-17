@@ -10,9 +10,9 @@ export interface Sales {
 }
 
 export interface DailySale {
-  year: number;
-  month: number;
-  day: number;
-  total: number;
-  sellerFullName: string;
+  year: number
+  month: number
+  day: number
+  total: number
+  sellerFullName: string
 }

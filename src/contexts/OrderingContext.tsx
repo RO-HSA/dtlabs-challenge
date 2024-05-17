@@ -1,8 +1,15 @@
-import { createContext, Dispatch, FC, ReactNode, SetStateAction, useState } from 'react'
+import {
+  createContext,
+  Dispatch,
+  FC,
+  ReactNode,
+  SetStateAction,
+  useState
+} from 'react'
 
 interface OrderingContextType {
-  order: string;
-  setOrder: Dispatch<SetStateAction<string>>;
+  order: string
+  setOrder: Dispatch<SetStateAction<string>>
 }
 
 export const OrderingContext = createContext<OrderingContextType>({
