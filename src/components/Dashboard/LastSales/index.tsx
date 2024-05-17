@@ -18,17 +18,21 @@ const LastSales: FC = () => {
     ))
   }, [data])
 
-  if (isLoading) return <Loading />
+  if (isLoading) return (
+    <div style={{position: 'absolute', top: '50%', left: '50%'}}>
+      <Loading />
+    </div>
+  )
 
   return (
-    <>
+    <div>
       {data?.length !== 0 && (
         <>
           <h2 className={title}>Últimas vendas deste mês</h2>
           <div className={gridContainer}>{list}</div>
         </>
       )}
-    </>
+    </div>
   )
 }
 
